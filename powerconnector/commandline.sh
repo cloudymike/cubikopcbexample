@@ -1,6 +1,11 @@
 #!/bin/bash
 
-unzip -o *.zip 
+# If there is a (new) zip file, unzip it and use it
+if [  -f *.zip ] 
+then 
+  echo "Unzipping new Gerber file"
+  unzip -o *.zip 
+fi
 rm -f *.nc
 
 pcb2gcode \
