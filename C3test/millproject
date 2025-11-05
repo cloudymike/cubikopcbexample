@@ -1,0 +1,47 @@
+# Pcb2GCode settings
+metric=true # Use mm to read the following values (feeds/speeds/etc.), not imperial inches
+metricoutput=true # Same, but for the output
+zero-start=true # Start from 0,0,0
+zsafe=1 # Safety height
+zchange=5 # Height to change a tool - don't over-do it to avoid crushing your Z axis
+software=custom # We're not using Mach or LinuxCNC
+mirror-axis=1 # Mirror the design to X. Required for the back side
+# voronoi=1 # (optional) Instead of cutting straight traces, cut the board only in the places that shouldn't connect with each other. Produces very weird boards but it's quite fast and optimal
+
+# Milling - Trace engraving
+zwork=-0.05mm # MODIFIED (0.07mm) Depth of engraving - did  quite a lot of testing and it seems 0.07 is quite consistent
+mill-feed=100 # Modified (600) How fast to go, in mm/min - maybe go a bit faster?
+mill-speed=10000 # How fast to rotate the spindle in RPM
+mill-diameters=0.176mm # MODIFIED(0.30mm)Caluclated by pcb_mill_calc.py - 0.30mm for 0.2mm 60 degree endmill
+isolation-width=0.52mm # MODIFIED(0.55mm)Space between traces - I recommend higher than 0.5mm to be MUCH easier to sold and avoid bridges
+milling-overlap=20% # How much should the passes to create the isolation width overlap - 20% is good
+
+# Drilling
+zdrill=-1.7 # Depth to drill a hole, +0.1mm than the board thickness to have clean holes
+zmilldrill=-1.7 # Same but for milldrill
+drill-side=back # Drill the board from the back side
+drill-feed=25 # Lower Z during drilling at 25mm/s - don't go much higher, CNCs don't like drilling
+drill-speed=10000 # How fast to rotate the spindle in RPM
+drills-available=0.3mm,0.4mm,0.5mm,0.6mm,0.7mm,0.8mm,0.9mm,1.0mm,1.101mm,2.2mm, 2.8mm,3.201mm # Available drill diameters - You "should" have all the diameters smaller than your milldrill bit, if you don't have one it will be rounded to the colsest one you have
+milldrill-diameter=1.0mm # Diameter of the milldrill endmill - I suggest 1mm as you have much less toolchanges and it lasts quite long
+min-milldrill-hole-diameter= 4.0mm # MODIFIED(1.0mm)Minimum diameter to milldrill - should be the same with your milldrill diameter
+
+# Outline
+zcut=-1.7 # Depth of cut for the outline
+cut-side=back # Cut the board from the back
+cut-feed=200 # How fast to cut the board in mm/min - can go a LOT faster I think
+cut-vertfeed=25 # How fast to plunge into the board - don't go much higher
+cut-speed=10000 # How fast to run the spindle in RPM
+cut-infeed=0.85 # Do the cutting in multiple passes, 0.85mm each - maybe this isn't needed
+cutter-diameter=1.0mm # Diameter of the cutter - use the milldrill bit
+bridges=4 # Width of each tab to avoid flying PCBs after the outline is done
+bridgesnum=2 # Number of tabs
+zbridges=-1.2 # Z height while cutting tabs, -1.2 will result in 0.4mm tabs - 0.4mm is ok
+
+# GRBL shenanigans
+# G64 is not supported by GRBL
+nog64=true
+# https://github.com/gnea/grbl/issues/290
+nog81=true
+nog91-1=true
+
