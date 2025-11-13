@@ -4,7 +4,43 @@ Example of creating PCBs with Cubico, including an example of ESP32C3 temperatur
 ## Current best practice
 
 ### Steps, Overview
-TBD...
+
+1. Prep GERBER file (routing parameter)  
+2. Translate GERBER to NC (CNC go code) file  
+3. Run CNC  
+4. Postprocessing and soldering
+
+### CNC steps
+
+* Create files with script  
+  * Calibrate hightmap, check outline of board so it is OK  
+* ENgrave copper  
+  * cleanup/vacuum  
+* Engrave outline  
+  * Missed one side ?? Maybe hightmap is no good?  
+  * Vacuum  
+* Drill holes.   
+  * New hightmap with 2x2 measuring points  
+    * Go to XY0.0 (macro) IMPORTANT  
+    * Move Z \< 5mm  
+    * Check that 0.0 is not on board cutout  
+  * Load drill file  
+    * It will stop for tool change. Ignore an click run again (we are just using one drill bit, 0.9mm)  
+  * Vacuum, clean  
+* Cut out board  
+  * Switch to 1.8mm  
+    * Tight fit with one of the wires, would have gone for 2mm otherwise	  
+  * New hightmap  
+    * Go to XY0.0  
+    * Move Z \< 5mm  
+    * Run heightmap again with 2x2 points  
+  * Load boardoutlinelayer file  
+  * Run  
+  * Clean/Vacuum (some more cruft here)  
+  * Deburr (used a scotchpad, OK, probably need fine sandpaper  
+  * Remove board (and vacuum again..)  
+  * Removed cart by twisting and then trimmed with wire cutter  
+    * There is probably a better way to do this
 
 ### Software
 
@@ -84,4 +120,11 @@ https://github.com/mattwach/cnc\_pcb\_tools
 ### Detailed tutorial, but using FlatCAM 
 
 Detailed tutorial: https://www.facebook.com/groups/584041651229213
+
+
+
+## Directory structure
+Inital structure includes all files including command script and millproject. 
+This is not tenable but for initial projects, before I figure out what
+is a good standard setup, this will do.
 
