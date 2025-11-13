@@ -35,4 +35,5 @@ rm -f *.GT?
 rm -f *.GDL
 rm -f *.GBS
 rm -f How-to-order-PCB.txt
+rm -f Drill_PTH_Through_Via.DRL
 
