@@ -27,7 +27,7 @@ milldrill-diameter=1.0mm # Diameter of the milldrill endmill - I suggest 1mm as 
 min-milldrill-hole-diameter= 4.0mm # MODIFIED(1.0mm)Minimum diameter to milldrill - should be the same with your milldrill diameter
 
 # Outline
-zcut=-1.9 # MODIFIED (-1.7) Depth of cut for the outline
+zcut=-1.8 # MODIFIED (-1.7) Depth of cut for the outline
 cut-side=back # Cut the board from the back
 cut-feed=200 # How fast to cut the board in mm/min - can go a LOT faster I think
 cut-vertfeed=25 # How fast to plunge into the board - don't go much higher
