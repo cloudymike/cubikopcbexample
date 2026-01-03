@@ -22,7 +22,7 @@ zmilldrill=-1.8 # MODIFIED (-1.7) Same but for milldrill
 drill-side=back # Drill the board from the back side
 drill-feed=25 # Lower Z during drilling at 25mm/s - don't go much higher, CNCs don't like drilling
 drill-speed=10000 # How fast to rotate the spindle in RPM
-drills-available=0.3mm,0.4mm,0.5mm,0.6mm,0.7mm,0.8mm,0.9mm,1.0mm,1.101mm,2.2mm, 2.8mm,3.201mm # Available drill diameters - You "should" have all the diameters smaller than your milldrill bit, if you don't have one it will be rounded to the colsest one you have
+drills-available=0.3mm,0.4mm,0.5mm,0.6mm,0.7mm,0.8mm,0.9mm,1.0mm,1.101mm,1.524mm,2.2mm, 2.8mm,3.201mm # Available drill diameters - You "should" have all the diameters smaller than your milldrill bit, if you don't have one it will be rounded to the colsest one you have
 milldrill-diameter=1.0mm # Diameter of the milldrill endmill - I suggest 1mm as you have much less toolchanges and it lasts quite long
 min-milldrill-hole-diameter= 4.0mm # MODIFIED(1.0mm)Minimum diameter to milldrill - should be the same with your milldrill diameter
 

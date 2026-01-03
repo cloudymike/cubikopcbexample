@@ -22,6 +22,8 @@ pcb2gcode \
   --outline Gerber_BoardOutlineLayer.GKO --outline-output Gerber_BoardOutlineLayer.nc
 fi
 
+python Tsplitter.py
+
 # Cleanup, may be too much 
 rm -f *.svg
 rm -f *.GT?

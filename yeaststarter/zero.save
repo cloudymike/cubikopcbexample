@@ -1,0 +1,27 @@
+( pcb2gcode 2.5.0 )
+( Software-independent Gcode )
+
+G94       (Millimeters per minute feed rate.)
+G21       (Units == Millimeters.)
+G90       (Absolute coordinates.)
+G00 S10000     (RPM spindle speed.)
+
+G00 Z5.00000 (Retract)
+M5      (Spindle stop.)
+G04 P1.00000
+M3      (Spindle on clockwise.)
+G0 Z1.00000
+G04 P1.00000
+
+G00 X0 Y0 
+G01 F50.00000
+( Mill infeed pass 1/1 )
+G01 Z-0.10000
+G1 Z1.00000
+
+G00 Z5.000 ( All done -- retract )
+
+M5      (Spindle off.)
+G04 P1.000000
+M9      (Coolant off.)
+M2      (Program end.)
